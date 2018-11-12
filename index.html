@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Pete's Pet Shop</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
+  </head>
+<body>
+<div class="indexHeader">
+  <h2>Crypto Currency</h2>
+</div>
+<div id="Transfer" class="mainContainer" class="tabcontent">
+  <form class="indexForm1">
+    <div class="indexForm">
+      <span>From :</span> <input class="indexInputBox" type="text" id="from">
+    </div>
+    <br>
+    <div class="indexForm">
+      <span>To :</span><input class="indexInputBox" type="text" id="to">
+    </div>
+    <br>
+    <div class="indexForm">
+      <span>Tokens :</span><input class="indexInputBox" type="text" id="tokens">
+    </div>
+    <br>
+    <div class="indexButton">
+      <button class="btn btn-default indexButton btn-createDD" type="button" data-id="0">Create-DD</button>
+      <button class="btn btn-default indexButton btn-pushDD" type="button" data-id="0">Push-DD</button>
+    </div>
+    <br>
+    <div class="indexForm">
+      <span>v :</span><input class="indexInputBox" type="text" id="v">
+    </div>
+    <br>
+    <div class="indexForm">
+      <span>r :</span><input class="indexInputBox" type="text" id="r">
+    </div>
+    <br>
+    <div class="indexForm">
+      <span>s :</span><input class="indexInputBox" type="text" id="s">
+    </div>
+    <br>
+  </form>
+</div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/web3.min.js"></script>
+    <script src="js/truffle-contract.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

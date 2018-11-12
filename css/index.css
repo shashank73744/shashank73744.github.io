@@ -1,0 +1,39 @@
+
+.mainContainer{
+  display: flex;
+  justify-content: center;
+}
+
+.indexHeader{
+  text-align: center;
+  color: #D7D56A;
+}
+
+.indexForm{
+  display: flex;
+  justify-content: space-between;
+  color: #D7D56A;
+  font-size:20px;
+}
+
+.indexButton{
+  display: flex;
+  justify-content: center;
+  color: #D7D56A;
+  font-size: 15px;
+}
+
+.indexInputBox{
+}
+
+.indexButton{
+  color:#D7D56A;
+}
+
+.indexForm1{
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border: solid 1px #D7D56A;
+}
