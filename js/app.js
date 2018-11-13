@@ -368,6 +368,7 @@ App = {
   },
 
   handleCreateDD: function(event) {
+    //$('#titleCryptoCurrency').removeClass('animated jello');
   	event.preventDefault();
     var from = document.getElementById("from").value;
     var to = document.getElementById("to").value;
@@ -384,11 +385,13 @@ App = {
      document.getElementById("v").value = _v_decimal;
      document.getElementById("r").value = _r;
      document.getElementById("s").value = _s;
+     $('#titleCryptoCurrency').addClass('animated jello delay-1s');
     return})}).catch(function(err) {
   		console.log(err.message);
 	})
 },
 handlePushDD : function(event){
+  $('#titleCryptoCurrency').addClass('animated jello');
   var from = document.getElementById("from").value;
   var to = document.getElementById("to").value;
   var tokens = document.getElementById("tokens").value ;
