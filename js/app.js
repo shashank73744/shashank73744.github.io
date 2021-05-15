@@ -341,7 +341,7 @@ App = {
   	await window.ethereum.send('eth_requestAccounts');    
   	window.web3 = new Web3(window.ethereum);    
   	return true;  }  
-  return false;}
+  return false;},
 
   init: function() {
   	document.getElementById("from").value = '0x837e871F7b112D6F696d43FaF43705E08Bd1F48A';
