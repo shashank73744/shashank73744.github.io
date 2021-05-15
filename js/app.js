@@ -345,11 +345,13 @@ App = {
 
   initWeb3: function() {
     if (typeof web3 !== 'undefined') {
-        web3 = new Web3(web3.currentProvider);
+      App.web3Provider = web3.currentProvider;
     } else {
-        console.log('No web3? You should consider trying MetaMask!');
-        web3 = new Web3(new Web3.providers.HttpProvider('https://shashank73744.github.io/'));
-    },
+  App.web3Provider = new Web3.providers.HttpProvider('https://shashank73744.github.io/');
+    }
+    web3 = new Web3(App.web3Provider);
+    return App.initContract();
+  },
   initContract: function() {
   //$.getJSON('checkcoin4.json', function(data) {
   var AdoptionArtifact = dataJson;
