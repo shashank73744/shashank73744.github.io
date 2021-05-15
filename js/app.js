@@ -335,9 +335,6 @@ var dataJson = {
 App = {
   web3Provider: null,
   contracts: {},
-
-  const Web3 = require("web3"),
-
   init: function() {
   	document.getElementById("from").value = '0x837e871F7b112D6F696d43FaF43705E08Bd1F48A';
   	document.getElementById("to").value = '0x4B619D34080b08d0421eac6934d549cDFdd7fb4b';
