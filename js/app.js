@@ -336,6 +336,13 @@ App = {
   web3Provider: null,
   contracts: {},
 
+  const Web3 = require("web3");
+  const ethEnabled = async () => {  if (window.ethereum) {    
+  	await window.ethereum.send('eth_requestAccounts');    
+  	window.web3 = new Web3(window.ethereum);    
+  	return true;  }  
+  return false;}
+
   init: function() {
   	document.getElementById("from").value = '0x837e871F7b112D6F696d43FaF43705E08Bd1F48A';
   	document.getElementById("to").value = '0x4B619D34080b08d0421eac6934d549cDFdd7fb4b';
@@ -344,10 +351,15 @@ App = {
   },
 
   initWeb3: function() {
-    if (typeof web3 !== 'undefined') {
+  	if (window.ethereum) {    
+  		await window.ethereum.send('eth_requestAccounts');   
+  		window.web3 = new Web3(window.ethereum);    
+  		return true;  
+  	}
+    else if (typeof web3 !== 'undefined') {
       App.web3Provider = web3.currentProvider;
     } else {
-  App.web3Provider = new Web3.providers.HttpProvider('https://shashank73744.github.io/');
+  	 App.web3Provider = new Web3.providers.HttpProvider('https://shashank73744.github.io/');
     }
     web3 = new Web3(App.web3Provider);
     return App.initContract();
