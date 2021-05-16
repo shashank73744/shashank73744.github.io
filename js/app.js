@@ -332,33 +332,42 @@ var dataJson = {
   "updatedAt": "2018-11-08T13:44:48.978Z"
 }
 
+function doWork(resp) {
+  console.log(this.initContract);
+  window.web3 = new Web3(window.ethereum); 
+  this.initContract();
+  return true;
+}
+
+
+
 App = {
   web3Provider: null,
   contracts: {},
 
   init: function() {
-  	document.getElementById("from").value = '0x837e871F7b112D6F696d43FaF43705E08Bd1F48A';
-  	document.getElementById("to").value = '0x4B619D34080b08d0421eac6934d549cDFdd7fb4b';
-  	document.getElementById("tokens").value = 1000000000000000000 ;
+    document.getElementById("from").value = '0x837e871F7b112D6F696d43FaF43705E08Bd1F48A';
+    document.getElementById("to").value = '0x4B619D34080b08d0421eac6934d549cDFdd7fb4b';
+    document.getElementById("tokens").value = 1000000000000000000 ;
     return App.initWeb3();
   },
 
   initWeb3: function() {
-  	if (window.ethereum) {    
-  		window.ethereum.send('eth_requestAccounts').then((resp,globobj)=>{
-  			window.web3 = new Web3(window.ethereum); 
-  			return globobj.App.initContract();
-  		}.bind(this));   
-  	} else {
-  		if (typeof web3 !== 'undefined') {
-      		App.web3Provider = web3.currentProvider;
-    	} else {
-  			App.web3Provider = new Web3.providers.HttpProvider('https://shashank73744.github.io/');
-    	}
-    	web3 = new Web3(App.web3Provider);
-    	return App.initContract();
-	}
-	return;
+    // App.web3Provider = web3.currentProvider;
+    // if (window.ethereum) {
+    //   var initContract = App.initContract
+    //   window.ethereum.send('eth_requestAccounts').then(doWork.bind(this));   
+    // } else {
+    if (typeof web3 !== 'undefined') {
+        App.web3Provider = web3.currentProvider;
+    } else {
+      App.web3Provider = new Web3.providers.HttpProvider('https://shashank73744.github.io/');
+    }
+    web3 = new Web3(App.web3Provider);
+    web3.eth.defaultAccount = web3.eth.accounts[0];
+    return App.initContract();
+  // }
+  return;
   },
   initContract: function() {
   //$.getJSON('checkcoin4.json', function(data) {
@@ -379,13 +388,13 @@ App = {
     if($('#titleCryptoCurrency').hasClass('animated jello')){
       $('#titleCryptoCurrency').removeClass('animated jello');
     }
-  	event.preventDefault();
+    event.preventDefault();
     var from = document.getElementById("from").value;
     var to = document.getElementById("to").value;
     var tokens = document.getElementById("tokens").value ;
     App.contracts.checkcoin4.deployed().then(function(instance) {
-  	return instance.getcurrentStatus(from,to,tokens);
-	}).then(function(message){
+    return instance.getcurrentStatus(from,to,tokens);
+  }).then(function(message){
      web3.eth.sign(web3.eth.accounts[0],message,function(err,_signature){
      var signature = _signature.substr(2); //remove 0x
      var _r = '0x' + signature.slice(0, 64)
@@ -397,8 +406,8 @@ App = {
      document.getElementById("s").value = _s;
      $('#titleCryptoCurrency').addClass('animated jello');
     return})}).catch(function(err) {
-  		console.log(err.message);
-	})
+      console.log(err.message);
+  })
 },
 handlePushDD : function(event){
   $('#titleCryptoCurrency').addClass('animated jello');
