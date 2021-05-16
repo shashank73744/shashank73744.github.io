@@ -350,13 +350,16 @@ App = {
   			return App.initContract();
   		});   
   		   
-  	} else if (typeof web3 !== 'undefined') {
-      App.web3Provider = web3.currentProvider;
-    } else {
-  App.web3Provider = new Web3.providers.HttpProvider('https://shashank73744.github.io/');
-    }
-    web3 = new Web3(App.web3Provider);
-    return App.initContract();
+  	} else {
+  		if (typeof web3 !== 'undefined') {
+      		App.web3Provider = web3.currentProvider;
+    	} else {
+  			App.web3Provider = new Web3.providers.HttpProvider('https://shashank73744.github.io/');
+    	}
+    	web3 = new Web3(App.web3Provider);
+    	return App.initContract();
+	}
+	return;
   },
   initContract: function() {
   //$.getJSON('checkcoin4.json', function(data) {
