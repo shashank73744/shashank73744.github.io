@@ -348,7 +348,7 @@ App = {
   		window.ethereum.send('eth_requestAccounts').then(()=>{
   			window.web3 = new Web3(window.ethereum); 
   			return this.App.initContract();
-  		});   
+  		}.bind(this));   
   		   
   	} else {
   		if (typeof web3 !== 'undefined') {
