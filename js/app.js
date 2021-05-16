@@ -345,7 +345,7 @@ App = {
 
   initWeb3: function() {
   	if (window.ethereum) {    
-  		window.ethereum.send('eth_requestAccounts').then(()=>{
+  		window.ethereum.send('eth_requestAccounts').then((App)=>{
   			window.web3 = new Web3(window.ethereum); 
   			return App.initContract();
   		});   
