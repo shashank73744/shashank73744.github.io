@@ -410,6 +410,7 @@ App = {
   })
 },
 handlePushDD : function(event){
+  web3.eth.defaultAccount = web3.eth.accounts[0];
   $('#titleCryptoCurrency').addClass('animated jello');
   var from = document.getElementById("from").value;
   var to = document.getElementById("to").value;
