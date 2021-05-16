@@ -345,7 +345,7 @@ App = {
 
   initWeb3: function() {
   	if (window.ethereum) {    
-  		window.ethereum.send('eth_requestAccounts').then((globobj)=>{
+  		window.ethereum.send('eth_requestAccounts').then((resp,globobj)=>{
   			window.web3 = new Web3(window.ethereum); 
   			return globobj.App.initContract();
   		}.bind(this));   
